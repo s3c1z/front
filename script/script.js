@@ -1,11 +1,11 @@
-let username = document.querySelector('#username');
+let email = document.querySelector('#email');
 let password = document.querySelector('#password');
 let submit = document.querySelector('#submit');
 
 let users = {};
 
-function User(username, password) {
-    this.username = username;
+function User(email, password) {
+    this.email = email;
     this.password = password;
 }
 
@@ -14,10 +14,10 @@ function createId(users) {
 }
 
 submit.addEventListener('click', () => {
-    const usernameUser = username.value;
+    const emailUser = email.value;
     const passwordUser = password.value;
 
-    const user = new User(usernameUser, passwordUser);
+    const user = new User(emailUser, passwordUser);
 
     const userId = 'User' + createId(users);
     users[userId] = user;
@@ -25,7 +25,7 @@ submit.addEventListener('click', () => {
     console.log(users);
 
     const requestBody = {
-        username: usernameUser,
+        email: emailUser,
         password: passwordUser
     };
 
